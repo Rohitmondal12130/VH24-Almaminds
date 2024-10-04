@@ -15,8 +15,16 @@ const bodyParser = require('body-parser')
 
 const session = require('express-session')
 const passport = require('passport');
-
+const LocalStrategy = require('passport-local');
 const GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
+
+const twilio = require('twilio');
+const otp = require('otplib');
+
+
+const accountSid = process.env.YOUR_TWILIO_ACCOUNT_SID;
+const authToken = process.env.YOUR_TWILIO_AUTH_TOKEN;
+const client = new twilio(accountSid, authToken);
 
 
 const MONGO_URL ="mongodb://127.0.0.1:27017/vcet";
@@ -55,6 +63,8 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+passport.use(new LocalStrategy({ usernameField: 'email' }, User.authenticate()));
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
@@ -90,9 +100,104 @@ passport.deserializeUser(async (id, done) => {
     }
 });
 
-app.get("/", (req, res) => {
-    res.render("login");
+
+otp.authenticator.options = {
+    step: 80,
+    window: 1,
+  };
+
+
+// Function to send OTP via SMS
+async function sendOTPSMS(toPhoneNumber, otp) {
+
+    const formattedPhoneNumber = toPhoneNumber.startsWith('+') ? toPhoneNumber : `+91${toPhoneNumber}`;
+
+    try {
+        const message = await client.messages.create({
+            body: `Your OTP is: ${otp}`, // Message content
+            to: formattedPhoneNumber, // Recipient phone number
+            from: '+12525166516' // Your Twilio phone number
+        });
+        console.log(`OTP sent via SMS: ${message.sid}`);
+    } catch (error) {
+        console.error(`Error sending OTP via SMS: ${error.message}`);
+    }
+}
+
+
+
+app.get("/signup", (req, res) => {
+    res.render("signup.ejs");
 });
+
+app.post('/signup', async (req, res, next) => {
+    const { email, password, displayName, phoneNumber } = req.body;
+
+    try {
+        const user = new User({ email, displayName, phoneNumber });
+        const registeredUser= await User.register(user, password);  // Automatically hashes password
+        req.login(registeredUser, (err) => {
+            if (err) return next(err);
+            console.log("You have successfully registered");
+            res.redirect("/profile");
+        });
+    } catch (err) {
+        console.error('Error registering user:', err);
+        res.redirect('/signup');
+    }
+});
+
+app.get('/login',(req,res)=>{
+    res.render("login.ejs");
+})
+
+app.post('/login', passport.authenticate('local', {failureRedirect: '/login',failureFlash: true}),async(req,res)=>{
+    req.session.userid = req.user.id;
+  // const otpCode = Math.floor(100000 + Math.random() * 900000);
+  const otpSecret = otp.authenticator.generateSecret();
+  req.session.otpSecret = otpSecret;
+
+  const otpCode = otp.authenticator.generate(otpSecret);
+
+  req.session.otpCode = otpCode;
+
+  const tophoneNumber  = req.user.phoneNumber;  // Assuming you have user's phone in DB
+  await sendOTPSMS(tophoneNumber, otpCode);
+  console.log(req.user)
+
+  res.redirect('/verify-otp');
+});
+
+app.get('/verify-otp', (req, res) => {
+    res.render('verify-otp.ejs');
+  });
+
+
+app.post('/verify-otp', (req, res) => {
+    const userInputOtp = req.body.otp;
+
+    const storedOtp = req.session.otpCode;
+    const otpSecret = req.session.otpSecret;
+  
+    // Verify the OTP
+    console.log('User Input OTP:', userInputOtp);
+    console.log('Stored OTP Secret:', otpSecret);
+    console.log('Stored OTP :', storedOtp);
+  
+    const isValid = otp.authenticator.check(userInputOtp, otpSecret);
+  
+    if (isValid) {
+      // OTP is valid
+      console.log('OTP verified successfully');
+      req.session.otpSecret = null;
+      req.session.otpCode = null;
+      req.session.userType = 'user';
+      res.redirect('/profile');
+    } else {
+      console.log('Invalid OTP');
+      res.send('Invalid OTP. Please try again.');
+    }
+});  
 
 app.get("/auth/google", passport.authenticate("google", {
     scope: ["profile", "email"]
@@ -118,6 +223,17 @@ app.get("/profile", (req, res) => {
     } else {
         res.redirect("/");
     }
+});
+
+
+app.get("/logout", (req, res, next) => {
+    req.logout((err) => {
+        if(err){
+            return next(err);
+          }
+        req.flash("success", "You have logged out");
+        res.redirect("/");
+    });
 });
 
 app.all("*", (req, res, next)=>{

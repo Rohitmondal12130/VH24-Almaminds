@@ -1,0 +1,110 @@
+username: rohityu@gmail.com
+action: Sign Up
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 1
+lastFailedLogin: Sat Oct 05 2024 00:12:41 GMT+0530 (India Standard Time)
+isBlocked: false
+sessionDuration: undefined
+
+username: rohityu@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 0
+lastFailedLogin: null
+isBlocked: false
+sessionDuration: 65
+
+username: hum@gmail.com
+action: Sign Up
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 0
+lastFailedLogin: null
+isBlocked: false
+sessionDuration: undefined
+  
+username: hum@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 0
+lastFailedLogin: null
+isBlocked: false
+sessionDuration: 61
+
+username: ddddd@gmail.com
+action: Sign Up
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 0
+lastFailedLogin: null
+isBlocked: false
+sessionDuration: undefined
+
+username: ddddd@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 0
+lastFailedLogin: null
+isBlocked: false
+sessionDuration: 65
+
+username: ddddd@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 1
+lastFailedLogin: Sat Oct 05 2024 01:18:24 GMT+0530 (India Standard Time)
+isBlocked: false
+sessionDuration: 65
+
+username: ddddd@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 2
+lastFailedLogin: Sat Oct 05 2024 01:18:49 GMT+0530 (India Standard Time)
+isBlocked: false
+sessionDuration: 65
+
+username: ddddd@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 3
+lastFailedLogin: Sat Oct 05 2024 01:19:11 GMT+0530 (India Standard Time)
+isBlocked: false
+sessionDuration: 65
+
+username: ddddd@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 4
+lastFailedLogin: Sat Oct 05 2024 01:19:14 GMT+0530 (India Standard Time)
+isBlocked: false
+sessionDuration: 65
+
+username: ddddd@gmail.com
+action: Login
+ipAddress: 103.134.7.130
+deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location: Mumbai, IN
+failedLoginAttempts: 5
+lastFailedLogin: Sat Oct 05 2024 01:19:17 GMT+0530 (India Standard Time)
+isBlocked: false
+sessionDuration: 65
+

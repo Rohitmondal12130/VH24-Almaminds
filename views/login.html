@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Login - OnlyAuth</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            height: 100%;
+            overflow: auto;
+            background: #000;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            filter: brightness(50%);
+        }
+
+        .navbar-custom {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            height: 80px;
+            padding: 0 20px;
+            transition: background-color 0.3s ease;
+            z-index: 10;
+        }
+
+        .navbar-brand {
+            color: #fff !important;
+            font-weight: 600;
+        }
+
+        .navbar-nav .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-logo {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Transparent login container */
+        .login-container {
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
+            margin: 100px auto;
+            text-align: center;
+            z-index: 2;
+            color: white;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 4px;
+            padding: 12px;
+            font-size: 14px;
+        }
+
+        .btn-custom {
+            background-color: #ff9900;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn-custom:hover {
+            background-color: #ff9900;
+        }
+
+        .signup-link {
+            margin-top: 15px;
+            color: white;
+        }
+
+        .signup-link a {
+            color: #ff9900;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .or-divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            color: white;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .or-divider::before {
+            margin-right: 10px;
+        }
+
+        .or-divider::after {
+            margin-left: 10px;
+        }
+
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .social-login button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            border-radius: 4px;
+            padding: 10px;
+            font-weight: 500;
+        }
+
+        .social-login img {
+            width: 18px;
+            height: 18px;
+        }
+
+        .social-login button:hover {
+            background-color: #f1f1f1;
+        }
+
+        
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            pointer-events: none;
+            background: url('https://cdn.pixabay.com/photo/2016/04/19/17/03/sparkle-1338431_1280.png') no-repeat center;
+            background-size: contain;
+            transform: translate(-50%, -50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: sparkle 1s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <video class="video-background" autoplay loop muted>
+        <source src="media/Topographic Textures _ After Effects _ Topographic Design _ Topographic Map  _ Background hd.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid position-relative">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="index.html">
+                <img src="https://via.placeholder.com/150x50.png?text=Logo" alt="OnlyAuth" class="navbar-logo">
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">
+                            <span class="material-symbols-outlined">login</span> Admin Login
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="signup.html">
+                            <span class="material-symbols-outlined">person_add</span> Signup
+                        </a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span class="material-symbols-outlined">info</span> About Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <h2>Welcome back</h2>
+        <form>
+            <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Email address" required>
+            </div>
+            <button type="submit" class="btn btn-custom">Continue</button>
+        </form>
+
+        <div class="signup-link">
+            Don't have an account? <a href="signup.html">Sign Up</a>
+        </div>
+
+        <div class="or-divider">OR</div>
+
+        <div class="social-login">
+            <a href="auth/google" class="auth-link">
+                <button class="auth-btn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/google.svg" alt="Google Logo">
+                    Continue with Google
+                </button>
+            </a>
+            
+            <a href="auth/microsoft" class="auth-link">
+                <button class="auth-btn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/microsoft.svg" alt="Microsoft Logo">
+                    Continue with Microsoft
+                </button>
+            </a>
+            
+            <a href="auth/apple" class="auth-link">
+                <button class="auth-btn">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons@v4/icons/apple.svg" alt="Apple Logo">
+                    Continue with Apple
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        <p>Follow Us:</p>
+        <a href="https://www.facebook.com" target="_blank">
+            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Facebook Logo" width="30" height="30">
+        </a>
+        <a href="https://www.twitter.com" target="_blank">
+            <img src="media/download-removebg-preview (3).png" alt="Twitter Logo" width="40" height="30">
+        </a>
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png" alt="Instagram Logo" width="30" height="30">
+        </a>
+        <a href="https://www.linkedin.com" target="_blank">
+            <img src="https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Linkedin_unofficial_colored_svg-512.png" alt="LinkedIn Logo" width="30" height="30">
+        </a>
+        <p>&copy; 2024 OnlyAuth. All Rights Reserved.</p>
+    </footer>
+
+
+    <style>
+
+footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+        footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        footer a:hover {
+            color: #ff9900; /* Change color on hover */
+        }
+
+
+        /* Remove underline and align buttons */
+        .auth-link {
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            margin: 10px 0; /* Adds space between buttons */
+        }
+    
+        /* Style for the button */
+        .auth-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: 1px solid #ccc; /* Adds a border */
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    
+        /* Styling the logos inside the buttons */
+        .auth-btn img {
+            margin-right: 8px; /* Space between the logo and text */
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+
+    <div class="cursor"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-OgVRvuATP0yGzXcY6B+5cIo5s5mAW6jP9z+v2eM6mAv6+wGEF1pON8x9LhPe7B/K" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-Nr5rNrRTKmwxm7FTq2U33fw9tm5yCndCPB2d60gQcvUmFQmUKlDkO83TQPbs2vCT" crossorigin="anonymous"></script>
+</body>
+
+</html>

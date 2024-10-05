@@ -1,0 +1,791 @@
+00:18:41,936 graphrag.index.cli INFO Logging enabled at C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\ragtest\output\indexing-engine.log
+00:18:41,941 graphrag.index.cli INFO Starting pipeline run for: 20241005-001841, dryrun=False
+00:18:41,944 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "azure_openai_chat",
+        "model": "scogo-gpt-4o",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+        "api_version": "2023-05-15",
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": "scogo-gpt-4",
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "C:\\Users\\BHUMIKA\\OneDrive\\Desktop\\desktop folder\\security\\ragtest",
+    "reporting": {
+        "type": "file",
+        "base_dir": "C:\\Users\\BHUMIKA\\OneDrive\\Desktop\\desktop folder\\security\\ragtest\\output",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "C:\\Users\\BHUMIKA\\OneDrive\\Desktop\\desktop folder\\security\\ragtest\\output",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_embedding",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://aas-eastus2-hub386797580333.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2023-05-15",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "text-embedding-small",
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+00:18:41,953 graphrag.index.create_pipeline_config INFO skipping workflows 
+00:18:41,953 graphrag.index.run.run INFO Running pipeline
+00:18:41,953 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\ragtest\output
+00:18:41,956 graphrag.index.input.load_input INFO loading input from root_dir=input
+00:18:41,957 graphrag.index.input.load_input INFO using file storage for input
+00:18:41,958 graphrag.index.storage.file_pipeline_storage INFO search C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\ragtest\input for files matching .*\.txt$
+00:18:41,960 graphrag.index.input.text INFO found text files from input, found [('deet.txt', {})]
+00:18:41,976 graphrag.index.input.text INFO Found 1 files, loading 1
+00:18:41,984 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'create_final_relationships', 'create_final_text_units', 'create_final_community_reports', 'create_base_documents', 'create_final_documents']
+00:18:41,985 graphrag.index.run.run INFO Final # of rows loaded: 1
+00:18:42,160 graphrag.index.run.workflow INFO dependencies for create_base_text_units: []
+00:18:42,167 datashaper.workflow.workflow INFO executing verb orderby
+00:18:42,179 datashaper.workflow.workflow INFO executing verb zip
+00:18:42,186 datashaper.workflow.workflow INFO executing verb aggregate_override
+00:18:42,205 datashaper.workflow.workflow INFO executing verb chunk
+00:18:42,495 datashaper.workflow.workflow INFO executing verb select
+00:18:42,503 datashaper.workflow.workflow INFO executing verb unroll
+00:18:42,512 datashaper.workflow.workflow INFO executing verb rename
+00:18:42,518 datashaper.workflow.workflow INFO executing verb genid
+00:18:42,525 datashaper.workflow.workflow INFO executing verb unzip
+00:18:42,537 datashaper.workflow.workflow INFO executing verb copy
+00:18:42,542 datashaper.workflow.workflow INFO executing verb filter
+00:18:42,571 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+00:18:42,847 graphrag.index.run.workflow INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+00:18:42,848 graphrag.utils.storage INFO read table from storage: create_base_text_units.parquet
+00:18:42,919 datashaper.workflow.workflow INFO executing verb entity_extract
+00:18:42,928 graphrag.llm.openai.create_openai_client INFO Creating Azure OpenAI client api_base=https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview, deployment_name=scogo-gpt-4
+00:18:43,568 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for scogo-gpt-4o: TPM=0, RPM=0
+00:18:43,569 graphrag.index.llm.load_llm INFO create concurrency limiter for scogo-gpt-4o: 25
+00:18:45,89 httpx INFO HTTP Request: POST https://aoai-triton-south-india.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-05-15 "HTTP/1.1 200 OK"
+00:18:45,93 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 1.5160000000032596. input_tokens=1858, output_tokens=54
+00:18:46,23 httpx INFO HTTP Request: POST https://aoai-triton-south-india.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-05-15 "HTTP/1.1 200 OK"
+00:18:46,24 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 0.9369999999980791. input_tokens=34, output_tokens=54
+00:18:46,83 datashaper.workflow.workflow INFO executing verb merge_graphs
+00:18:46,91 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+00:18:46,303 graphrag.index.run.workflow INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+00:18:46,304 graphrag.utils.storage INFO read table from storage: create_base_extracted_entities.parquet
+00:18:46,328 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+00:18:46,340 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+00:18:46,574 graphrag.index.run.workflow INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+00:18:46,575 graphrag.utils.storage INFO read table from storage: create_summarized_entities.parquet
+00:18:46,596 datashaper.workflow.workflow INFO executing verb cluster_graph
+00:18:46,597 graphrag.index.verbs.graph.clustering.cluster_graph WARNING Graph has no nodes
+00:18:46,602 datashaper.workflow.workflow ERROR Error executing verb "cluster_graph" in create_base_entity_graph: Columns must be same length as key
+Traceback (most recent call last):
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\datashaper\workflow\workflow.py", line 410, in _execute_verb
+    result = node.verb.func(**verb_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\graphrag\index\verbs\graph\clustering\cluster_graph.py", line 106, in cluster_graph
+    output_df[[level_to, to]] = pd.DataFrame(
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\pandas\core\frame.py", line 4299, in __setitem__
+    self._setitem_array(key, value)
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\pandas\core\frame.py", line 4341, in _setitem_array
+    check_key_length(self.columns, key, value)
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\pandas\core\indexers\utils.py", line 390, in check_key_length
+    raise ValueError("Columns must be same length as key")
+ValueError: Columns must be same length as key
+00:18:46,611 graphrag.index.reporting.file_workflow_callbacks INFO Error executing verb "cluster_graph" in create_base_entity_graph: Columns must be same length as key details=None
+00:18:46,611 graphrag.index.run.run ERROR error running workflow create_base_entity_graph
+Traceback (most recent call last):
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\graphrag\index\run\run.py", line 227, in run_pipeline
+    result = await _process_workflow(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\graphrag\index\run\workflow.py", line 91, in _process_workflow
+    result = await workflow.run(context, callbacks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\datashaper\workflow\workflow.py", line 369, in run
+    timing = await self._execute_verb(node, context, callbacks)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\datashaper\workflow\workflow.py", line 410, in _execute_verb
+    result = node.verb.func(**verb_args)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\graphrag\index\verbs\graph\clustering\cluster_graph.py", line 106, in cluster_graph
+    output_df[[level_to, to]] = pd.DataFrame(
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\pandas\core\frame.py", line 4299, in __setitem__
+    self._setitem_array(key, value)
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\pandas\core\frame.py", line 4341, in _setitem_array
+    check_key_length(self.columns, key, value)
+  File "C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\classify\Lib\site-packages\pandas\core\indexers\utils.py", line 390, in check_key_length
+    raise ValueError("Columns must be same length as key")
+ValueError: Columns must be same length as key
+00:18:46,617 graphrag.index.reporting.file_workflow_callbacks INFO Error running pipeline! details=None
+00:18:46,657 graphrag.index.cli ERROR Errors occurred during the pipeline run, see logs for more details.
+11:48:34,515 graphrag.index.cli INFO Logging enabled at C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\ragtest\output\indexing-engine.log
+11:48:34,519 graphrag.index.cli INFO Starting pipeline run for: 20241005-114834, dryrun=False
+11:48:34,522 graphrag.index.cli INFO Using default configuration: {
+    "llm": {
+        "api_key": "==== REDACTED ====",
+        "type": "azure_openai_chat",
+        "model": "scogo-gpt-4o",
+        "max_tokens": 4000,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "request_timeout": 180.0,
+        "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+        "api_version": "2023-05-15",
+        "proxy": null,
+        "cognitive_services_endpoint": null,
+        "deployment_name": "scogo-gpt-4",
+        "model_supports_json": true,
+        "tokens_per_minute": 0,
+        "requests_per_minute": 0,
+        "max_retries": 10,
+        "max_retry_wait": 10.0,
+        "sleep_on_rate_limit_recommendation": true,
+        "concurrent_requests": 25
+    },
+    "parallelization": {
+        "stagger": 0.3,
+        "num_threads": 50
+    },
+    "async_mode": "threaded",
+    "root_dir": "C:\\Users\\BHUMIKA\\OneDrive\\Desktop\\desktop folder\\security\\ragtest",
+    "reporting": {
+        "type": "file",
+        "base_dir": "C:\\Users\\BHUMIKA\\OneDrive\\Desktop\\desktop folder\\security\\ragtest\\output",
+        "storage_account_blob_url": null
+    },
+    "storage": {
+        "type": "file",
+        "base_dir": "C:\\Users\\BHUMIKA\\OneDrive\\Desktop\\desktop folder\\security\\ragtest\\output",
+        "storage_account_blob_url": null
+    },
+    "cache": {
+        "type": "file",
+        "base_dir": "cache",
+        "storage_account_blob_url": null
+    },
+    "input": {
+        "type": "file",
+        "file_type": "text",
+        "base_dir": "input",
+        "storage_account_blob_url": null,
+        "encoding": "utf-8",
+        "file_pattern": ".*\\.txt$",
+        "file_filter": null,
+        "source_column": null,
+        "timestamp_column": null,
+        "timestamp_format": null,
+        "text_column": "text",
+        "title_column": null,
+        "document_attribute_columns": []
+    },
+    "embed_graph": {
+        "enabled": false,
+        "num_walks": 10,
+        "walk_length": 40,
+        "window_size": 2,
+        "iterations": 3,
+        "random_seed": 597832,
+        "strategy": null
+    },
+    "embeddings": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_embedding",
+            "model": "text-embedding-3-small",
+            "max_tokens": 4000,
+            "temperature": 0,
+            "top_p": 1,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://aas-eastus2-hub386797580333.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2023-05-15",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "text-embedding-small",
+            "model_supports_json": null,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "batch_size": 16,
+        "batch_max_tokens": 8191,
+        "target": "required",
+        "skip": [],
+        "vector_store": null,
+        "strategy": null
+    },
+    "chunks": {
+        "size": 1200,
+        "overlap": 100,
+        "group_by_columns": [
+            "id"
+        ],
+        "strategy": null,
+        "encoding_model": null
+    },
+    "snapshots": {
+        "graphml": false,
+        "raw_entities": false,
+        "top_level_nodes": false
+    },
+    "entity_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/entity_extraction.txt",
+        "entity_types": [
+            "organization",
+            "person",
+            "geo",
+            "event"
+        ],
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "summarize_descriptions": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/summarize_descriptions.txt",
+        "max_length": 500,
+        "strategy": null
+    },
+    "community_reports": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "prompt": "prompts/community_report.txt",
+        "max_length": 2000,
+        "max_input_length": 8000,
+        "strategy": null
+    },
+    "claim_extraction": {
+        "llm": {
+            "api_key": "==== REDACTED ====",
+            "type": "azure_openai_chat",
+            "model": "scogo-gpt-4o",
+            "max_tokens": 4000,
+            "temperature": 0.0,
+            "top_p": 1.0,
+            "n": 1,
+            "request_timeout": 180.0,
+            "api_base": "https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview",
+            "api_version": "2023-05-15",
+            "proxy": null,
+            "cognitive_services_endpoint": null,
+            "deployment_name": "scogo-gpt-4",
+            "model_supports_json": true,
+            "tokens_per_minute": 0,
+            "requests_per_minute": 0,
+            "max_retries": 10,
+            "max_retry_wait": 10.0,
+            "sleep_on_rate_limit_recommendation": true,
+            "concurrent_requests": 25
+        },
+        "parallelization": {
+            "stagger": 0.3,
+            "num_threads": 50
+        },
+        "async_mode": "threaded",
+        "enabled": false,
+        "prompt": "prompts/claim_extraction.txt",
+        "description": "Any claims or facts that could be relevant to information discovery.",
+        "max_gleanings": 1,
+        "strategy": null,
+        "encoding_model": null
+    },
+    "cluster_graph": {
+        "max_cluster_size": 10,
+        "strategy": null
+    },
+    "umap": {
+        "enabled": false
+    },
+    "local_search": {
+        "text_unit_prop": 0.5,
+        "community_prop": 0.1,
+        "conversation_history_max_turns": 5,
+        "top_k_entities": 10,
+        "top_k_relationships": 10,
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "llm_max_tokens": 2000
+    },
+    "global_search": {
+        "temperature": 0.0,
+        "top_p": 1.0,
+        "n": 1,
+        "max_tokens": 12000,
+        "data_max_tokens": 12000,
+        "map_max_tokens": 1000,
+        "reduce_max_tokens": 2000,
+        "concurrency": 32
+    },
+    "encoding_model": "cl100k_base",
+    "skip_workflows": []
+}
+11:48:34,530 graphrag.index.create_pipeline_config INFO skipping workflows 
+11:48:34,531 graphrag.index.run.run INFO Running pipeline
+11:48:34,531 graphrag.index.storage.file_pipeline_storage INFO Creating file storage at C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\ragtest\output
+11:48:34,535 graphrag.index.input.load_input INFO loading input from root_dir=input
+11:48:34,535 graphrag.index.input.load_input INFO using file storage for input
+11:48:34,539 graphrag.index.storage.file_pipeline_storage INFO search C:\Users\BHUMIKA\OneDrive\Desktop\desktop folder\security\ragtest\input for files matching .*\.txt$
+11:48:34,540 graphrag.index.input.text INFO found text files from input, found [('deet.txt', {})]
+11:48:34,549 graphrag.index.input.text INFO Found 1 files, loading 1
+11:48:34,551 graphrag.index.workflows.load INFO Workflow Run Order: ['create_base_text_units', 'create_base_extracted_entities', 'create_summarized_entities', 'create_base_entity_graph', 'create_final_entities', 'create_final_nodes', 'create_final_communities', 'create_final_relationships', 'create_final_text_units', 'create_final_community_reports', 'create_base_documents', 'create_final_documents']
+11:48:34,551 graphrag.index.run.run INFO Final # of rows loaded: 1
+11:48:34,688 graphrag.index.run.workflow INFO dependencies for create_base_text_units: []
+11:48:34,696 datashaper.workflow.workflow INFO executing verb orderby
+11:48:34,700 datashaper.workflow.workflow INFO executing verb zip
+11:48:34,705 datashaper.workflow.workflow INFO executing verb aggregate_override
+11:48:34,715 datashaper.workflow.workflow INFO executing verb chunk
+11:48:34,946 datashaper.workflow.workflow INFO executing verb select
+11:48:34,950 datashaper.workflow.workflow INFO executing verb unroll
+11:48:34,956 datashaper.workflow.workflow INFO executing verb rename
+11:48:34,963 datashaper.workflow.workflow INFO executing verb genid
+11:48:34,968 datashaper.workflow.workflow INFO executing verb unzip
+11:48:34,976 datashaper.workflow.workflow INFO executing verb copy
+11:48:34,983 datashaper.workflow.workflow INFO executing verb filter
+11:48:35,15 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_text_units.parquet
+11:48:35,271 graphrag.index.run.workflow INFO dependencies for create_base_extracted_entities: ['create_base_text_units']
+11:48:35,272 graphrag.utils.storage INFO read table from storage: create_base_text_units.parquet
+11:48:35,327 datashaper.workflow.workflow INFO executing verb entity_extract
+11:48:35,346 graphrag.llm.openai.create_openai_client INFO Creating Azure OpenAI client api_base=https://AOAI-Triton-South-India.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-03-15-preview, deployment_name=scogo-gpt-4
+11:48:35,875 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for scogo-gpt-4o: TPM=0, RPM=0
+11:48:35,875 graphrag.index.llm.load_llm INFO create concurrency limiter for scogo-gpt-4o: 25
+11:48:39,9 httpx INFO HTTP Request: POST https://aoai-triton-south-india.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-05-15 "HTTP/1.1 200 OK"
+11:48:39,15 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "Process" with 0 retries took 3.1410000000000764. input_tokens=2417, output_tokens=286
+11:48:44,799 httpx INFO HTTP Request: POST https://aoai-triton-south-india.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-05-15 "HTTP/1.1 200 OK"
+11:48:44,800 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "extract-continuation-0" with 0 retries took 5.780999999999949. input_tokens=34, output_tokens=544
+11:48:44,826 datashaper.workflow.workflow INFO executing verb merge_graphs
+11:48:44,834 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_extracted_entities.parquet
+11:48:45,20 graphrag.index.run.workflow INFO dependencies for create_summarized_entities: ['create_base_extracted_entities']
+11:48:45,21 graphrag.utils.storage INFO read table from storage: create_base_extracted_entities.parquet
+11:48:45,42 datashaper.workflow.workflow INFO executing verb summarize_descriptions
+11:48:45,72 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_summarized_entities.parquet
+11:48:45,230 graphrag.index.run.workflow INFO dependencies for create_base_entity_graph: ['create_summarized_entities']
+11:48:45,231 graphrag.utils.storage INFO read table from storage: create_summarized_entities.parquet
+11:48:45,251 datashaper.workflow.workflow INFO executing verb cluster_graph
+11:48:45,297 datashaper.workflow.workflow INFO executing verb select
+11:48:45,300 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_entity_graph.parquet
+11:48:45,480 graphrag.index.run.workflow INFO dependencies for create_final_entities: ['create_base_entity_graph']
+11:48:45,481 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+11:48:45,500 datashaper.workflow.workflow INFO executing verb unpack_graph
+11:48:45,510 datashaper.workflow.workflow INFO executing verb rename
+11:48:45,519 datashaper.workflow.workflow INFO executing verb select
+11:48:45,529 datashaper.workflow.workflow INFO executing verb dedupe
+11:48:45,541 datashaper.workflow.workflow INFO executing verb rename
+11:48:45,553 datashaper.workflow.workflow INFO executing verb filter
+11:48:45,587 datashaper.workflow.workflow INFO executing verb text_split
+11:48:45,603 datashaper.workflow.workflow INFO executing verb drop
+11:48:45,622 datashaper.workflow.workflow INFO executing verb merge
+11:48:45,643 datashaper.workflow.workflow INFO executing verb text_embed
+11:48:45,665 graphrag.llm.openai.create_openai_client INFO Creating Azure OpenAI client api_base=https://aas-eastus2-hub386797580333.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2023-05-15, deployment_name=text-embedding-small
+11:48:46,213 graphrag.index.llm.load_llm INFO create TPM/RPM limiter for text-embedding-3-small: TPM=0, RPM=0
+11:48:46,214 graphrag.index.llm.load_llm INFO create concurrency limiter for text-embedding-3-small: 25
+11:48:46,214 graphrag.index.verbs.text.embed.strategies.openai INFO embedding 6 inputs via 6 snippets using 1 batches. max_batch_size=16, max_tokens=8191
+11:48:47,154 httpx INFO HTTP Request: POST https://aas-eastus2-hub386797580333.openai.azure.com/openai/deployments/text-embedding-3-small/embeddings?api-version=2023-05-15 "HTTP/1.1 200 OK"
+11:48:48,529 graphrag.llm.base.rate_limiting_llm INFO perf - llm.embedding "Process" with 0 retries took 2.3120000000001255. input_tokens=135, output_tokens=0
+11:48:48,563 datashaper.workflow.workflow INFO executing verb drop
+11:48:48,574 datashaper.workflow.workflow INFO executing verb filter
+11:48:48,603 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_entities.parquet
+11:48:48,861 graphrag.index.run.workflow INFO dependencies for create_final_nodes: ['create_base_entity_graph']
+11:48:48,866 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+11:48:48,914 datashaper.workflow.workflow INFO executing verb layout_graph
+11:48:48,956 datashaper.workflow.workflow INFO executing verb unpack_graph
+11:48:48,974 datashaper.workflow.workflow INFO executing verb unpack_graph
+11:48:48,996 datashaper.workflow.workflow INFO executing verb filter
+11:48:49,38 datashaper.workflow.workflow INFO executing verb drop
+11:48:49,56 datashaper.workflow.workflow INFO executing verb select
+11:48:49,79 datashaper.workflow.workflow INFO executing verb rename
+11:48:49,97 datashaper.workflow.workflow INFO executing verb join
+11:48:49,125 datashaper.workflow.workflow INFO executing verb convert
+11:48:49,234 datashaper.workflow.workflow INFO executing verb rename
+11:48:49,241 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_nodes.parquet
+11:48:49,582 graphrag.index.run.workflow INFO dependencies for create_final_communities: ['create_base_entity_graph']
+11:48:49,583 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+11:48:49,621 datashaper.workflow.workflow INFO executing verb create_final_communities
+11:48:49,649 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_communities.parquet
+11:48:49,952 graphrag.index.run.workflow INFO dependencies for create_final_relationships: ['create_base_entity_graph', 'create_final_nodes']
+11:48:49,964 graphrag.utils.storage INFO read table from storage: create_base_entity_graph.parquet
+11:48:49,969 graphrag.utils.storage INFO read table from storage: create_final_nodes.parquet
+11:48:50,21 datashaper.workflow.workflow INFO executing verb create_final_relationships_pre_embedding
+11:48:50,41 datashaper.workflow.workflow INFO executing verb create_final_relationships_post_embedding
+11:48:50,53 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_relationships.parquet
+11:48:50,276 graphrag.index.run.workflow INFO dependencies for create_final_text_units: ['create_base_text_units', 'create_final_relationships', 'create_final_entities']
+11:48:50,277 graphrag.utils.storage INFO read table from storage: create_base_text_units.parquet
+11:48:50,283 graphrag.utils.storage INFO read table from storage: create_final_relationships.parquet
+11:48:50,294 graphrag.utils.storage INFO read table from storage: create_final_entities.parquet
+11:48:50,338 datashaper.workflow.workflow INFO executing verb create_final_text_units_pre_embedding
+11:48:50,367 datashaper.workflow.workflow INFO executing verb select
+11:48:50,370 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_text_units.parquet
+11:48:50,594 graphrag.index.run.workflow INFO dependencies for create_final_community_reports: ['create_final_relationships', 'create_final_nodes']
+11:48:50,595 graphrag.utils.storage INFO read table from storage: create_final_relationships.parquet
+11:48:50,601 graphrag.utils.storage INFO read table from storage: create_final_nodes.parquet
+11:48:50,640 datashaper.workflow.workflow INFO executing verb prepare_community_reports_nodes
+11:48:50,658 datashaper.workflow.workflow INFO executing verb prepare_community_reports_edges
+11:48:50,676 datashaper.workflow.workflow INFO executing verb restore_community_hierarchy
+11:48:50,698 datashaper.workflow.workflow INFO executing verb prepare_community_reports
+11:48:50,698 graphrag.index.verbs.graph.report.prepare_community_reports INFO Number of nodes at level=0 => 6
+11:48:50,752 datashaper.workflow.workflow INFO executing verb create_community_reports
+11:48:55,115 httpx INFO HTTP Request: POST https://aoai-triton-south-india.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-05-15 "HTTP/1.1 200 OK"
+11:48:55,116 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 4.3279999999999745. input_tokens=2113, output_tokens=375
+11:48:56,769 httpx INFO HTTP Request: POST https://aoai-triton-south-india.openai.azure.com/openai/deployments/gpt-4o/chat/completions?api-version=2023-05-15 "HTTP/1.1 200 OK"
+11:48:56,772 graphrag.llm.base.rate_limiting_llm INFO perf - llm.chat "create_community_report" with 0 retries took 5.969000000000051. input_tokens=2230, output_tokens=618
+11:48:56,814 datashaper.workflow.workflow INFO executing verb window
+11:48:56,818 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_community_reports.parquet
+11:48:57,21 graphrag.index.run.workflow INFO dependencies for create_base_documents: ['create_final_text_units']
+11:48:57,21 graphrag.utils.storage INFO read table from storage: create_final_text_units.parquet
+11:48:57,63 datashaper.workflow.workflow INFO executing verb unroll
+11:48:57,85 datashaper.workflow.workflow INFO executing verb select
+11:48:57,114 datashaper.workflow.workflow INFO executing verb rename
+11:48:57,143 datashaper.workflow.workflow INFO executing verb join
+11:48:57,171 datashaper.workflow.workflow INFO executing verb aggregate_override
+11:48:57,214 datashaper.workflow.workflow INFO executing verb join
+11:48:57,238 datashaper.workflow.workflow INFO executing verb rename
+11:48:57,259 datashaper.workflow.workflow INFO executing verb convert
+11:48:57,286 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_base_documents.parquet
+11:48:57,563 graphrag.index.run.workflow INFO dependencies for create_final_documents: ['create_base_documents']
+11:48:57,564 graphrag.utils.storage INFO read table from storage: create_base_documents.parquet
+11:48:57,636 datashaper.workflow.workflow INFO executing verb rename
+11:48:57,640 graphrag.index.emit.parquet_table_emitter INFO emitting parquet table create_final_documents.parquet
+11:48:57,820 graphrag.index.cli INFO All workflows completed successfully.

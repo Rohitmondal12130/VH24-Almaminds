@@ -1,0 +1,50 @@
+username is rohityu@gmail.com
+action is Sign Up
+ipAddress of it is 103.134.7.130
+deviceInfo is respective Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location is in Mumbai, IN
+failedLoginAttempts is  1
+lastFailedLogin was on Sat Oct 05 2024 00:12:41 GMT+0530 (India Standard Time)
+It is not Blocked ,sessionDuration is undefined
+
+username is rohityu@gmail.com
+action is Login with
+ipAddress 105.131.7.130 and deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+and the location is  Mumbai, IN
+the no of failedLoginAttempts is 6
+lastFailedLogin is  null
+It is blocked now with sessionDuration 65
+
+username is hum@gmail.com with action Sign Up
+and ipAddress 103.134.7.130 with deviceInfo: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location is Mumbai, IN
+with 0 failed Login Attempts , the lastFailedLogin is null
+It is not blocked
+the sessionDuration is undefined
+  
+username is  hum@gmail.com
+with action being Login, the ipAddress is 103.134.7.130
+the deviceInfo is  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+and the location: Mumbai, IN8
+with the failedLoginAttempts: being 0
+the lastFailedLogin is none and not Blocked
+the sessionDuration is 61
+
+username is ddddd@gmail.com with action is Sign Up
+the ipAddress is 103.134.7.130
+The deviceInfo is  Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+The location here is Mumbai IN,
+failedLoginAttempts is 0
+The lastFailedLogin is null
+it is not Blocked
+sessionDuration is now undefined
+
+username is ddddd@gmail.com
+action is now Login
+ipAddress is this 103.134.7.130
+deviceInfo is Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36
+location here is  Mumbai, IN
+failedLoginAttempts is 6
+the lastFailedLogin was on Sat Oct 05 2024 01:19:17 GMT+0530 (India Standard Time)
+The user is Blocked
+with sessionDuration being 65

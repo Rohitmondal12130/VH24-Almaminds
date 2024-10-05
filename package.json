@@ -1,15 +1,21 @@
 {
   "dependencies": {
+    "@vonage/server-sdk": "^3.18.0",
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^4.21.0",
     "express-session": "^1.18.0",
+    "express-useragent": "^1.0.15",
+    "geoip-lite": "^1.4.10",
     "mongoose": "^8.7.0",
+    "nodemailer": "^6.9.15",
     "otplib": "^12.0.1",
     "passport": "^0.7.0",
     "passport-google-oauth2": "^0.2.0",
     "passport-local-mongoose": "^8.0.0",
+    "request-ip": "^3.3.0",
     "twilio": "^5.3.3"
   },
   "name": "myauth",

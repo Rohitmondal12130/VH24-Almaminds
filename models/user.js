@@ -21,7 +21,9 @@ const UserSchema = new Schema({
         type: Date,
         default: Date.now // Automatically sets the current date and time
     },
-    phoneNumber: String,
+    randomPhrase: { 
+        type: String 
+    }
 });
 
 UserSchema.plugin(passportLocalMongoose, { usernameField: 'email' });

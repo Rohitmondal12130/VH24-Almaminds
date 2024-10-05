@@ -1,7 +1,3 @@
-Sure! Here's the updated README section with additional small details integrated to make the flow and context clearer, as requested:
-
----
-
 # Authenticate Me
 
 **Authenticate Me** is a multi-layered authentication platform that combines industry-standard security protocols with advanced behavioral analysis. Our system utilizes OTP-based verification via **Twilio**, a personalized **Master Safety Phrase**, and **GraphRAG** for real-time behavioral analysis. We ensure both security and user-friendliness through seamless API integrations.
@@ -195,7 +191,7 @@ POST /api/verify-otp
 
 1. Clone the repository:
     bash
-    git clone [https://github.com/your-repo/authenticate-me.git](https://github.com/Rohitmondal12130/VH24-Almaminds.git]
+    git clone https://github.com/your-repo/authenticate-me.git](https://github.com/Rohitmondal12130/VH24-Almaminds.git
     
 
 2. Install dependencies:

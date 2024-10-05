@@ -16,7 +16,7 @@ The **Authenticate Me** API provides easy integration for any system requiring s
 
 ### 1. **User Sign-Up**
 
-**Endpoint**: `/api/v1/signup`  
+**Endpoint**: `/api/signup`  
 **Method**: `POST`  
 **Description**: This endpoint registers a new user. An OTP is sent to the user’s phone number via **Twilio** for verification. Along with the OTP, the user receives a unique **Master Safety Phrase** to be used for password recovery and advanced verification.
 
@@ -45,7 +45,7 @@ Sent from your Twilio trial account - Please note this customized phrase for fut
   
 ### 2. **Login**
 
-**Endpoint**: `/api/v1/login`  
+**Endpoint**: `/api/login`  
 **Method**: `POST`  
 **Description**: Authenticates the user using a one-time password (OTP) sent via **Twilio**. If the system detects suspicious activity, it may ask the user for the **Master Phrase** instead of an OTP. 
 
@@ -72,7 +72,7 @@ Sent from your Twilio trial account - Please note this customized phrase for fut
 
 ### 3. **Forgot Password**
 
-**Endpoint**: `/api/v1/forgot-password`  
+**Endpoint**: `/api/forgot-password`  
 **Method**: `POST`  
 **Description**: The user provides their **Master Safety Phrase** to reset their password. Upon verification, a reset link will be sent to their registered email.
 
@@ -87,11 +87,38 @@ Sent from your Twilio trial account - Please note this customized phrase for fut
 **Response**:
 ```json
 {
-    "message": "Password reset link sent to your email"
+    "message": "Password reset link sent to your phone while signing up, we got you if you forget your password!"
 }
 ```
 
 ---
+### 4. **Verify OTP**
+
+**Endpoint**: `/api/verify-otp`  
+**Method**: `POST`  
+**Description**: Verifies the OTP sent to the user's phone number for authentication.
+
+**Request**:
+```bash
+POST /api/verify-otp
+{
+    "username": "Bhoomika Singh",
+    "otp": "GeneratedRandomOTP"
+}
+```
+
+**Response**:
+```json
+{
+    "message": "OTP verified successfully",
+    "status": "success"
+}
+```
+
+
+
+---
+
 
 ## Metadata for Behavioral Analysis
 

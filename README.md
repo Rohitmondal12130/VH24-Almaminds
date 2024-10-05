@@ -4,6 +4,9 @@
 
 Additionally, **GraphRAG** integrates with **Neo4j** to track behavioral patterns, alerting administrators to anomalies in user activity. Open-source **LLM models from Hugging Face** are utilized for the behavioral checks, optimizing cost while ensuring security remains uncompromised.
 
+![Flowchart depicting a secure multi-factor authentication process, integrating OTP, secret phrases, and behavioral monitoring for enhanced user security.](https://github.com/user-attachments/assets/1a29402f-1b26-49fb-80e6-65f3018fad5b)
+
+
 ---
 
 ## API Usage

@@ -195,7 +195,7 @@ POST /api/verify-otp
 
 1. Clone the repository:
     bash
-    git clone https://github.com/your-repo/authenticate-me.git
+    git clone [https://github.com/your-repo/authenticate-me.git](https://github.com/Rohitmondal12130/VH24-Almaminds.git]
     
 
 2. Install dependencies:
